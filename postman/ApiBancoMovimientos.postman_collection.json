@@ -1,0 +1,210 @@
+{
+  "info": {
+    "_postman_id": "6a355350-9907-4003-947f-55762924f20c",
+    "name": "ApiBancoMovimientos",
+    "description": "Urls para crear flujo de clentes, cuentas y sus movimientos para depositos y retiros",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "18675472"
+  },
+  "item": [
+    {
+      "name": "ClienteApiBancoMovimientos",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Jose Lema\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 30,\r\n  \"identificacion\": \"1234567890\",\r\n  \"direccion\": \"Otavalo sn y principal\",\r\n  \"telefono\": \"098254785\",\r\n  \"clienteId\": \"CLI001\",\r\n  \"contrasena\": \"1234\",\r\n  \"estado\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/appmovcuenta/api/v1/clientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "appmovcuenta",
+            "api",
+            "v1",
+            "clientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ActualizarClienteBancoApiMovientos",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Jose Lema Actualizado\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"1234567890\",\r\n  \"direccion\": \"Nueva dirección\",\r\n  \"telefono\": \"0999999999\",\r\n  \"clienteId\": \"CLI001\",\r\n  \"contrasena\": \"4321\",\r\n  \"estado\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/appmovcuenta/api/v1/clientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "appmovcuenta",
+            "api",
+            "v1",
+            "clientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CuentasCrearBancoApiMovimientos",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"numeroCuenta\": \"478758\",\r\n  \"tipoCuenta\": \"AHORROS\",\r\n  \"saldoInicial\": 2000.00,\r\n  \"estado\": true,\r\n  \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/appmovcuenta/api/v1/cuentas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "appmovcuenta",
+            "api",
+            "v1",
+            "cuentas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CuentasActualizarBancoApiMovimientos",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"numeroCuenta\": \"478758\",\r\n  \"tipoCuenta\": \"AHORROS\",\r\n  \"saldoInicial\": 2500.00,\r\n  \"estado\": true,\r\n  \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/appmovcuenta/api/v1/cuentas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "appmovcuenta",
+            "api",
+            "v1",
+            "cuentas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RegistrarDepositoBancoApiMovimientos",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"numeroCuenta\": \"478758\",\r\n  \"tipoMovimiento\": \"DEPOSITO\",\r\n  \"valor\": 500.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RegistrarRetiroBancoApiMovimientos",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"numeroCuenta\": \"478758\",\r\n  \"tipoMovimiento\": \"RETIRO\",\r\n  \"valor\": -100.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GenerarReporteBancoApiMovimientos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/appmovcuenta/api/v1/reportes?clienteId=CLI001&fechaInicio=2026-06-01&fechaFin=2026-06-30",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "appmovcuenta",
+            "api",
+            "v1",
+            "reportes"
+          ],
+          "query": [
+            {
+              "key": "clienteId",
+              "value": "CLI001"
+            },
+            {
+              "key": "fechaInicio",
+              "value": "2026-06-01"
+            },
+            {
+              "key": "fechaFin",
+              "value": "2026-06-30"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
